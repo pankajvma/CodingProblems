@@ -29,24 +29,12 @@ class CRDGAME
 					}	
 					i++;
 				}
-				if(A_points>B_points){
-					System.out.print("0"+" "+A_points);
-					if(tCount==(testCases-1))
-					break;
-					System.out.print("\n");
-				}
-				else if(B_points>A_points){
-					System.out.print("1"+" "+B_points);
-					if(tCount==(testCases-1))
-					break;
-					System.out.print("\n");
-				}
-				else{
-					System.out.print("2"+" "+A_points);
-					if(tCount==(testCases-1))
-					break;
-					System.out.print("\n");
-				}
+				if(A_points>B_points)
+					System.out.println("0"+" "+A_points);
+				else if(B_points>A_points)
+					System.out.println("1"+" "+B_points);
+				else
+					System.out.println("2"+" "+A_points);
 				tCount++;
 			}
 			sc.close();
