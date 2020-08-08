@@ -5,20 +5,20 @@ import java.io.*;
 /* Name of the class has to be "Main" only if the class is public. */
 class CHEFSTEP
 {
-	 static class Reader {
+	 static class FastReader {
         final private int BUFFER_SIZE = 1 << 16;
         private DataInputStream din;
         private byte[] buffer;
         private int bufferPointer, bytesRead;
 
-        public Reader()
+        public FastReader()
         {
             din = new DataInputStream(System.in);
             buffer = new byte[BUFFER_SIZE];
             bufferPointer = bytesRead = 0;
         }
 
-        public Reader(String file_name) throws IOException
+        public FastReader(String file_name) throws IOException
         {
             din = new DataInputStream(new FileInputStream(file_name));
             buffer = new byte[BUFFER_SIZE];
@@ -127,15 +127,15 @@ class CHEFSTEP
 	public static void main (String[] args) throws Exception
 	{
 		try{
-			Reader s=new Reader(); 
-			int testCases=s.nextInt();
+			FastReader fs=new FastReader(); 
+			int testCases=fs.nextInt();
 			StringBuilder build;
 			for(int i=0;i<testCases;i++){
-				int distance = s.nextInt();
-				int stepLength = s.nextInt();
+				int distance = fs.nextInt();
+				int stepLength = fs.nextInt();
 				build=new StringBuilder("");
 				for(int j=0; j<distance; j++){
-					int dPath=s.nextInt();
+					int dPath=fs.nextInt();
 					if(dPath%stepLength==0)
 						build.append("1");
 					else
