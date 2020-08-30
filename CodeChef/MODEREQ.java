@@ -1,10 +1,3 @@
-/*input
-2
-8
-5 9 2 9 7 2 5 3
-9
-5 9 2 9 7 2 5 3 1
-*/
 import java.util.*;
 import java.lang.*;
 import java.io.*;
@@ -138,13 +131,50 @@ class MODEFREQ
             for(int loop = 0; loop < testCases; loop++){
                 int numberOfAssignmentValues = fs.nextInt();
                 int [] arrayOfAssignmentValues = new int[numberOfAssignmentValues];
-                ArrayList<Integer> frequencyArray = new ArrayList<>();
+                int [] frequencyArray = new int[10];
+                int top = 0;
                 int len = numberOfAssignmentValues - 1;
                 for(int i = 0; i <= len; i++){
                     arrayOfAssignmentValues[i] = fs.nextInt();
                 }
-                Arrays.sort(arrayOfAssignmentValues);
-                
+                int maxFrequency = 0, frequencyValue = 0, frequency = 0;
+                boolean looper = true;
+                for(int i = 0 ; i<= len; i++){
+                    int temp = arrayOfAssignmentValues[i];
+                    if(arrayOfAssignmentValues[i] == -1){
+                        continue;
+                    }
+                    for(int j = 0; j <= len ; j++){
+                        if(temp == arrayOfAssignmentValues[j]){
+                            frequency++;
+                            arrayOfAssignmentValues[j] = -1;
+                        }
+                    }
+                    frequencyArray[top++] = frequency;
+                    frequency = 0;
+                }
+
+                for(int i = 0 ; i< 10; i++){
+                    int temp = frequencyArray[i];
+                    if(frequencyArray[i] <= 0){
+                        continue;
+                    }
+                    for(int j = 0; j < 10 ; j++){
+                        if(temp == frequencyArray[j]){
+                            frequency++;
+                            frequencyArray[j] = -1;
+                        }
+                    }
+                    if(frequency == maxFrequency && temp < frequencyValue){
+                        frequencyValue = temp;
+                    }
+                    if(frequency > maxFrequency){
+                        maxFrequency = frequency;
+                        frequencyValue = temp;
+                    }
+                    frequency = 0;
+                }
+                System.out.println(frequencyValue);
             }
         }
         catch(Exception e){System.out.println(e);}
