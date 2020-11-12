@@ -1,5 +1,3 @@
-package vma.Searching;
-
 import java.util.Scanner;
 
 public class BinarySearch {
