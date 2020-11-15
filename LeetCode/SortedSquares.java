@@ -1,6 +1,6 @@
-class Solution {
+class SortedSquares {
     public int[] sortedSquares(int[] A) {
-        int temp=0;
+        int temp;
         for(int i=0;i<A.length;i++)
             A[i]*=A[i];
         for(int i=0;i<A.length-1;i++)

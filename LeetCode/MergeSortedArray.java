@@ -1,7 +1,7 @@
-class Solution {
+class MergeSortedArray {
     public void merge(int[] nums1, int m, int[] nums2, int n){
         m+=n;
-        int j=0;
+        int j;
         for(int i=0;i<n;i++){
             j=i;
             while(j<m){

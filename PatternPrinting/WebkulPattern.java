@@ -1,8 +1,14 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.*;
- class Webkul
+ class WebkulPattern
 {
-  public static void main (String[]args)
-  {Scanner pv=new Scanner(System.in);
+  public static void main (String[]args) throws FileNotFoundException {
+  	System.setIn(new FileInputStream(new File("input.txt")));
+  	System.setOut(new PrintStream(new File("output.txt")));
+  	Scanner pv=new Scanner(System.in);
     int num=pv.nextInt();
 	int i=num;
 	int k,j;

@@ -1,6 +1,6 @@
-class Solution {
+class ReplaceElements {
     public int[] replaceElements(int[] arr){
-        int len = arr.length-1,max=0;
+        int len = arr.length-1,max;
         if(len==0){
             arr[0]=-1; 
             return arr;

@@ -125,6 +125,8 @@ class CENS20D
     } 
 	public static void main (String[] args) throws Exception
 	{
+	    System.setIn(new FileInputStream(new File("input.txt")));
+	    System.setOut(new PrintStream(new File("output.txt")));
 		try{
 			FastReader fs=new FastReader(); 
 			int testCases=fs.nextInt();

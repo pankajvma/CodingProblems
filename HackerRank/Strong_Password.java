@@ -7,7 +7,7 @@ import java.util.concurrent.*;
 import java.util.regex.*;
 import java.lang.Character;
 
-public class Solution {
+public class Strong_Password {
     static int minimumNumber(int n, String password) {
         int min =0;
         boolean isUp=false, isLow = false, isSp=false, isNum= false;

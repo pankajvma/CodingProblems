@@ -1,4 +1,4 @@
-class Solution {
+class RemoveDuplicate {
     public int removeDuplicates(int[] nums) {
         int i = 0;
         for(int j = 0; j < nums.length; j++){

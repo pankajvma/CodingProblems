@@ -1,10 +1,10 @@
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
 
-class TEST
+class ADADISH
 {
-	 static class FastReader {
+    static class FastReader {
         final private int BUFFER_SIZE = 1 << 16;
         private DataInputStream din;
         private byte[] buffer;
@@ -122,21 +122,50 @@ class TEST
                 return;
             din.close();
         }
-    } 
-	public static void main (String[] args) throws Exception
-	{
-		long startTime = System.nanoTime();
-		try{
-			FastReader fs=new FastReader(); 
-			short i=(short)fs.nextInt();
-            while(i!=42){
-                System.out.println(i);
-                i=(short)fs.nextInt();
+    }
+    public static void main (String[] args) throws Exception
+    {
+        System.setIn(new FileInputStream(new File("input.txt")));
+        System.setOut(new PrintStream(new File("output.txt")));
+        try{
+            FastReader fs=new FastReader();
+            int testCases=fs.nextInt();
+            //System.out.println("1");
+            for(int loop=0;loop<testCases;loop++){
+                int noOfDishes = fs.nextInt();
+                if(noOfDishes == 1){
+                    System.out.println(fs.nextInt());
+                    continue;
+                }
+                int[] arr = new int[noOfDishes];
+                if(noOfDishes == 2){
+                    arr[0] = fs.nextInt();
+                    arr[1] = fs.nextInt();
+                    System.out.println(Math.max(arr[0], arr[1]));
+                    continue;
+                }
+                int len = noOfDishes - 1;
+                for(int i=0; i <= len; i++)
+                    arr[i] = fs.nextInt();
+                Arrays.sort(arr);
+                int time;
+                int h1 = arr[len];
+                int h2 = arr[len - 1];
+                int current = len -2;
+                while(current != -1){
+                    if(h1 >= h2){
+                        h2 += arr[current];
+                    } else {
+                        h1 += arr[current];
+                    }
+                    current--;
+                }
+                time = Math.max(h1, h2);
+                System.out.println(time);
             }
-            return;
-			}
-		catch(Exception e){System.out.println(e);}
-		long endTime = System.nanoTime();
-		System.out.println("Time: "+(endTime-startTime)/1000000);
-	}
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 }

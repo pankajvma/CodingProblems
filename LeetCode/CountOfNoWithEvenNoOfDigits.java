@@ -1,4 +1,4 @@
-class Solution {
+class CountOdNoWithEvenNoOfDigits {
     public int findNumbers(int[] nums) {
         int numCount=0, evenCount=0;
         for(int i:nums){

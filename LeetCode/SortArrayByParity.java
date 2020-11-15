@@ -1,4 +1,4 @@
-class Solution {
+class SortArrayByParity {
     public int[] sortArrayByParity(int[] A) {
         int i = 0, j = A.length - 1;
         while (i < j) {

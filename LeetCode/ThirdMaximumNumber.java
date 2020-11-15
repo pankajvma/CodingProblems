@@ -1,4 +1,4 @@
-class Solution {
+class ThirdMaximumNumber {
     int diff1=0, diff2=0;
     public int thirdMax(int[] nums) {
         int first = 0, second = 0, third = -2147483648, diffValues=1;

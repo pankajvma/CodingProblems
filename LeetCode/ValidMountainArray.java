@@ -1,4 +1,4 @@
-class Solution {
+class ValidMountainArray {
     public boolean validMountainArray(int[] A) {
         int len= A.length-1, j=0;
         if(len==0||len<0||A[1]<A[0])
