@@ -1,6 +1,6 @@
 import java.util.*;
 
-class CodeChef
+class LECANDY
 {
 	public static void main (String[] args)
 	{
