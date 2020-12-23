@@ -7,7 +7,7 @@ class HeighestDivisibleTriangleNumber{
 		catch(Exception e){System.out.println(e);}
 
 	}
-	public static int noOfDivisor(int n){
+	public static long noOfDivisor(long n){
 		long divNo =1, count =0;
 		if(isPrime(n)) return 2;
 		for(long loop = 2; loop <= 20; loop++ ){
