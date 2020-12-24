@@ -143,7 +143,7 @@ class BEGGASOL
                         fuel += (arrCar[i] - 1);
                         travel++;
                     }
-                    if(fuel <= 0){
+                    else{
                         break;
                     }
                 }
