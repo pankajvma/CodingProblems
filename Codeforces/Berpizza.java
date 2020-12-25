@@ -1,36 +1,31 @@
-import java.util.*;
-import java.lang.*;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-/* Name of the class has to be "Main" only if the class is public. */
-class LINCHESS
-{
-	 static class Reader {
+public class Berpizza {
+    static class FastReader {
         final private int BUFFER_SIZE = 1 << 16;
         private DataInputStream din;
         private byte[] buffer;
         private int bufferPointer, bytesRead;
 
-        public Reader()
-        {
+        public FastReader() {
             din = new DataInputStream(System.in);
             buffer = new byte[BUFFER_SIZE];
             bufferPointer = bytesRead = 0;
         }
 
-        public Reader(String file_name) throws IOException
-        {
+        public FastReader(String file_name) throws IOException {
             din = new DataInputStream(new FileInputStream(file_name));
             buffer = new byte[BUFFER_SIZE];
             bufferPointer = bytesRead = 0;
         }
 
-        public String readLine() throws IOException
-        {
-            byte[] buf = new byte[64]; // line length
+        public String readLine() throws IOException {
+            byte[] buf = new byte[128]; // line length
             int cnt = 0, c;
-            while ((c = read()) != -1)
-            {
+            while ((c = read()) != -1) {
                 if (c == '\n')
                     break;
                 buf[cnt++] = (byte) c;
@@ -38,8 +33,7 @@ class LINCHESS
             return new String(buf, 0, cnt);
         }
 
-        public int nextInt() throws IOException
-        {
+        public int nextInt() throws IOException {
             int ret = 0;
             byte c = read();
             while (c <= ' ')
@@ -47,18 +41,16 @@ class LINCHESS
             boolean neg = (c == '-');
             if (neg)
                 c = read();
-            do
-            {
+            do {
                 ret = ret * 10 + c - '0';
-            }  while ((c = read()) >= '0' && c <= '9');
+            } while ((c = read()) >= '0' && c <= '9');
 
             if (neg)
                 return -ret;
             return ret;
         }
 
-        public long nextLong() throws IOException
-        {
+        public long nextLong() throws IOException {
             long ret = 0;
             byte c = read();
             while (c <= ' ')
@@ -75,8 +67,7 @@ class LINCHESS
             return ret;
         }
 
-        public double nextDouble() throws IOException
-        {
+        public double nextDouble() throws IOException {
             double ret = 0, div = 1;
             byte c = read();
             while (c <= ' ')
@@ -90,10 +81,8 @@ class LINCHESS
             }
             while ((c = read()) >= '0' && c <= '9');
 
-            if (c == '.')
-            {
-                while ((c = read()) >= '0' && c <= '9')
-                {
+            if (c == '.') {
+                while ((c = read()) >= '0' && c <= '9') {
                     ret += (c - '0') / (div *= 10);
                 }
             }
@@ -103,55 +92,67 @@ class LINCHESS
             return ret;
         }
 
-        private void fillBuffer() throws IOException
-        {
+        private void fillBuffer() throws IOException {
             bytesRead = din.read(buffer, bufferPointer = 0, BUFFER_SIZE);
             if (bytesRead == -1)
                 buffer[0] = -1;
         }
 
-        private byte read() throws IOException
-        {
+        private byte read() throws IOException {
             if (bufferPointer == bytesRead)
                 fillBuffer();
             return buffer[bufferPointer++];
         }
 
-        public void close() throws IOException
-        {
+        public void close() throws IOException {
             if (din == null)
                 return;
             din.close();
         }
-    } 
-	public static void main (String[] args) throws Exception
-	{
-		try{
-			Reader s=new Reader(); 
-			int testCases=s.nextInt();
-			for(int i=0;i<testCases;i++){
-				int noOfPlayers = s.nextInt();
-				int chefsPosition = s.nextInt();
-                int minTurns=0, realPlayer=0;
-                boolean runOnce =true;
-				for(int j=0; j<noOfPlayers; j++){
-                    int player=s.nextInt();
-                    if(chefsPosition%player==0 && minTurns > chefsPosition/player){
-                        minTurns = chefsPosition/player;
-                        realPlayer = player;
-                    }
-                    else if(chefsPosition%player==0 && runOnce){
-                        minTurns = chefsPosition/player;
-                        realPlayer = player;
-                        runOnce = false;
-                    }
+    }
+
+    public static void main(String[] args) throws Exception {
+        try {
+            System.setIn(new FileInputStream(new File("input.txt")));
+            System.setOut(new PrintStream(new File("output.txt")));
+            FastReader fs = new FastReader();
+            int q = fs.nextInt();
+            ArrayList<Integer> customers = new ArrayList<>();
+            while (q != 0) {
+                int check = fs.nextInt();
+                if(check == 1){
+                    int m = fs.nextInt();
+                    customers.add(m);
                 }
-                if(minTurns > 0)
-				    System.out.println(realPlayer);
-                else
-                    System.out.println("-1");
-			}
-		}
-		catch(Exception e){System.out.println(e);}
-	}
+                else if(check == 2){
+                    for(int i = 0; i <= customers.size(); i++){
+                        if(customers.get(i) != 0){
+                            customers.set(i, 0);
+                            System.out.println(i + 1);
+                            break;
+                        }
+                    }
+                } else{
+                    int max = findMax(customers);
+                    System.out.println(customers.indexOf(max) + 1);
+                    customers.set(customers.indexOf(max), 0);
+                }
+                q--;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static  int findMax(ArrayList<Integer> customers){
+        int max = 0;
+        for(Integer i : customers){
+            if(i > max){
+                max = i;
+            }
+        }
+        return max;
+    }
+
 }
