@@ -111,8 +111,6 @@ public class WasteSorting {
 
     public static void main(String[] args) throws Exception {
         try {
-            System.setIn(new FileInputStream(new File("input.txt")));
-            System.setOut(new PrintStream(new File("output.txt")));
             FastReader fs = new FastReader();
             int testCases = fs.nextInt();
             while (testCases != 0) {
@@ -140,21 +138,9 @@ public class WasteSorting {
                     }
                     canBeSorted = true;
                 }
-//                else{
-//                    System.out.println("NO");
-//                    testCases--;
-//                    continue;
-//                }
                 if((c[1] + c[2]) < a[4]){
-                    //System.out.println("YES");
-//                    testCases--;
-//                    continue;
                     canBeSorted = false;
                 }
-//                else{
-////                    System.out.println("NO");
-//                    canBeSorted = false;
-//                }
                 if(canBeSorted){
                     System.out.println("YES");
                 }else{
@@ -169,4 +155,3 @@ public class WasteSorting {
     }
 
 }
-
