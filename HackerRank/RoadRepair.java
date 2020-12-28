@@ -9,15 +9,13 @@ class RoadRepair {
         long sum = 0;
         Collections.sort(crew_id);
         Collections.sort(job_id);
-        for(int i = 0; i < crew_id.size(); i++){
+        for (int i = 0; i < crew_id.size(); i++) {
             long temp = crew_id.get(i) - job_id.get(i);
             sum += Math.abs(temp);
         }
         return sum;
     }
 
-}
-public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
@@ -48,7 +46,7 @@ public class Solution {
                 .map(Integer::parseInt)
                 .collect(toList());
 
-        long result = RoadRepair.getMinCost(crew_id, job_id);
+        long result = getMinCost(crew_id, job_id);
 
         bufferedWriter.write(String.valueOf(result));
         bufferedWriter.newLine();
