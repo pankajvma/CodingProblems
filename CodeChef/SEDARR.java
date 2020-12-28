@@ -1,9 +1,4 @@
-import com.sun.source.tree.BinaryTree;
-import com.sun.source.tree.ExpressionTree;
-import com.sun.source.tree.TreeVisitor;
-
 import java.io.*;
-import java.util.*;
 
 public class SEDARR {
     static class FastReader {
@@ -120,7 +115,6 @@ public class SEDARR {
             System.setOut(new PrintStream(new File("output.txt")));
             FastReader fs = new FastReader();
             int q = fs.nextInt();
-            int id = 0;
             while (q != 0) {
                 int entries = fs.nextInt();
                 int N = fs.nextInt();
