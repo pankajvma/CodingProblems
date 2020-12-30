@@ -111,8 +111,6 @@ public class CYBV {
 
     public static void main(String[] args) throws Exception {
         try {
-            System.setIn(new FileInputStream(new File("input.txt")));
-            System.setOut(new PrintStream(new File("output.txt")));
             FastReader fs = new FastReader();
             int q = fs.nextInt();
             while (q != 0) {
