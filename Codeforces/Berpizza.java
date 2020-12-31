@@ -1,7 +1,9 @@
+import com.sun.source.tree.BinaryTree;
+import com.sun.source.tree.ExpressionTree;
+import com.sun.source.tree.TreeVisitor;
+
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Berpizza {
     static class FastReader {
@@ -111,33 +113,61 @@ public class Berpizza {
         }
     }
 
+    static class Customers{
+        int id;
+        int money;
+
+        public Customers(int id, int money) {
+            this.id = id;
+            this.money = money;
+        }
+    }
+
+    static int top = -1;
+    static int idBase = 0;
+    static ArrayList<Customers> orderById = new ArrayList<>();
+    static ArrayList<Customers> orderByMoney = new ArrayList<>();
+
     public static void main(String[] args) throws Exception {
         try {
             System.setIn(new FileInputStream(new File("input.txt")));
             System.setOut(new PrintStream(new File("output.txt")));
             FastReader fs = new FastReader();
             int q = fs.nextInt();
-            ArrayList<Integer> customers = new ArrayList<>();
+            int id = 0;
             while (q != 0) {
                 int check = fs.nextInt();
                 if(check == 1){
-                    int m = fs.nextInt();
-                    customers.add(m);
-                }
-                else if(check == 2){
-                    for(int i = 0; i <= customers.size(); i++){
-                        if(customers.get(i) != 0){
-                            customers.set(i, 0);
-                            System.out.println(i + 1);
+                    int money = fs.nextInt();
+                    id++;
+                    top++;
+                    Customers newCustomer = new Customers(id, money);
+                    orderById.add(newCustomer);
+                    addToOrderByMoney(newCustomer);
+                }else if(check == 2){
+                    for(int i = idBase; i <= top; i++){
+                        if(orderById.get(i).id != 0){
+                            System.out.println(orderById.get(i).id);
+                            orderById.get(i).id = 0;
+                            break;
+                        }
+                        idBase++;
+                    }
+                } else{
+                    for(int i = orderByMoney.size()-1; i >= 0; i--){
+                        if(orderByMoney.get(i).id != 0){
+                            System.out.println(orderByMoney.get(i).id);
+                            orderByMoney.get(i).id = 0;
                             break;
                         }
                     }
-                } else{
-                    int max = findMax(customers);
-                    System.out.println(customers.indexOf(max) + 1);
-                    customers.set(customers.indexOf(max), 0);
                 }
                 q--;
+            }
+
+            System.out.println("check money:");
+            for(Customers i : orderByMoney){
+                System.out.println(i.id + " " + i.money);
             }
 
         } catch (Exception e) {
@@ -145,14 +175,15 @@ public class Berpizza {
         }
     }
 
-    public static  int findMax(ArrayList<Integer> customers){
-        int max = 0;
-        for(Integer i : customers){
-            if(i > max){
-                max = i;
+    public static void addToOrderByMoney(Customers newCustomer){
+        int temp = top;
+        if( temp == 0 || orderByMoney.get(temp - 1).money < newCustomer.money){
+            orderByMoney.add(newCustomer);
+        }else{
+            while(temp > 0 && newCustomer.money <= orderByMoney.get(temp - 1).money ){
+                temp--;
             }
+            orderByMoney.add(temp, newCustomer);
         }
-        return max;
     }
-
 }
