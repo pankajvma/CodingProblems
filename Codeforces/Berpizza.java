@@ -125,6 +125,7 @@ public class Berpizza {
 
     static int top = -1;
     static int idBase = 0;
+    static int moneyBase = 0;
     static ArrayList<Customers> orderById = new ArrayList<>();
     static ArrayList<Customers> orderByMoney = new ArrayList<>();
 
@@ -154,13 +155,14 @@ public class Berpizza {
                         idBase++;
                     }
                 } else{
-                    for(int i = orderByMoney.size()-1; i >= 0; i--){
+                    for(int i = moneyBase; i <= top; i++){
                         if(orderByMoney.get(i).id != 0){
                             System.out.println(orderByMoney.get(i).id);
                             orderByMoney.get(i).id = 0;
                             break;
                         }
                     }
+                    moneyBase++;
                 }
                 q--;
             }
@@ -177,10 +179,12 @@ public class Berpizza {
 
     public static void addToOrderByMoney(Customers newCustomer){
         int temp = top;
-        if( temp == 0 || orderByMoney.get(temp - 1).money < newCustomer.money){
+        if( temp == 0 || orderByMoney.get(temp - 1).money >= newCustomer.money){
             orderByMoney.add(newCustomer);
         }else{
-            while(temp > 0 && newCustomer.money <= orderByMoney.get(temp - 1).money ){
+            while(temp > 0 &&
+                    newCustomer.money > orderByMoney.get(temp - 1).money &&
+                    orderByMoney.get(temp - 1).id  != 0){
                 temp--;
             }
             orderByMoney.add(temp, newCustomer);
