@@ -131,8 +131,6 @@ public class Berpizza {
 
     public static void main(String[] args) throws Exception {
         try {
-            System.setIn(new FileInputStream(new File("input.txt")));
-            System.setOut(new PrintStream(new File("output.txt")));
             FastReader fs = new FastReader();
             int q = fs.nextInt();
             int id = 0;
@@ -150,26 +148,23 @@ public class Berpizza {
                         if(orderById.get(i).id != 0){
                             System.out.println(orderById.get(i).id);
                             orderById.get(i).id = 0;
+                            idBase = i + 1;
                             break;
                         }
-                        idBase++;
+                        //idBase++;
                     }
                 } else{
                     for(int i = moneyBase; i <= top; i++){
                         if(orderByMoney.get(i).id != 0){
                             System.out.println(orderByMoney.get(i).id);
                             orderByMoney.get(i).id = 0;
+                            moneyBase = i + 1;
                             break;
                         }
+                        //moneyBase++;
                     }
-                    moneyBase++;
                 }
                 q--;
-            }
-
-            System.out.println("check money:");
-            for(Customers i : orderByMoney){
-                System.out.println(i.id + " " + i.money);
             }
 
         } catch (Exception e) {
