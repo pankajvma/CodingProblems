@@ -1,19 +1,27 @@
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class LAPIN {
     static String str;
     static String check1;
     static String check2;
     static int splitFrom;
+    static int[] frequencyArr = new int[26];
+    static char[] alphabetList = new char[26];
+    static char i;
     public static void main(String[] args) throws Exception {
         try {
             System.setIn(new FileInputStream(new File("input.txt")));
             System.setOut(new PrintStream(new File("output.txt")));
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            char j = 97;
+            for(int i =0; i < 26; i++, j++){
+                alphabetList[i] = j;
+            }
             int testCases = Integer.parseInt(br.readLine());
             while (testCases != 0) {
+                for(int i =0; i < 26; i++, i++){
+                    frequencyArr[i] = 0;
+                }
                 str = br.readLine();
                 splitFrom = str.length()/2;
                 check1 = str.substring(0, splitFrom);
@@ -35,25 +43,32 @@ public class LAPIN {
 
     public static boolean checkLapin(char[] check1, char[] check2){
         int i = 0;
-        int j = check1.length - 1;
-        while((i >= 0 ) && (j < check1.length)){
-            if(check2[j] != 0 && check1[i] == check2[j]){
+        int j = 0;
+        while(i < alphabetList.length){
+            //System.out.println(i);
+            if(alphabetList[i] == check1[j]){
+                frequencyArr[i]++;
+            }
+            j++;
+            if(j == check1.length){
+                j = 0;
                 i++;
-                check2[j] = 0;
-                j = check1.length - 1;
-            }else {
-                j--;
-            }
-            if(j == 0 && check2[j] == '0'){
-                return false;
-            }
-            if(i == check1.length || j == -1){
-                break;
             }
         }
-        for(char k: check2){
-            if(k != 0){
-                return  false;
+        i = 0;
+        j = 0;
+        int count = 0;
+        while(i < alphabetList.length){
+            System.out.println(alphabetList[i]+": " + frequencyArr[i] );
+            i++;
+        }
+        while(i < alphabetList.length){
+            if(alphabetList[i] == check2[j]){
+                count++;
+                if(j == alphabetList.length-1 && count == frequencyArr[i]){
+                    j = 0;
+                    i++;
+                }
             }
         }
         return true;
