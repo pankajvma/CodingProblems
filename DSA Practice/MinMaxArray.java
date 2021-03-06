@@ -4,10 +4,6 @@ public class MinMaxArray {
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
         int i = 0;
-        if(arr.length == 0){
-            System.out.println("Empty array");
-            return;
-        }
         while(i <= arr.length-1){
             if(min > arr[i]){
                 min = arr[i];
