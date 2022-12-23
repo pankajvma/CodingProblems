@@ -11,7 +11,7 @@ public class CurrencyFormatter {
         Scanner scanner = new Scanner(System.in);
         double payment = scanner.nextDouble();
         scanner.close();
-        final Locale INDIA = new Locale("en", "in");
+        final Locale INDIA = new Locale("en", "in"); //India does not have a built-in Locale, so we must construct one where the language is en (i.e., English).
         NumberFormat us = NumberFormat.getCurrencyInstance();
         NumberFormat india = NumberFormat.getCurrencyInstance(INDIA);
         NumberFormat china = NumberFormat.getCurrencyInstance(Locale.CHINA);
