@@ -7,7 +7,7 @@ public class JavaStdInAndStdOut2 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int i = scan.nextInt();
-        float d = scan.nextFloat();
+        double d = scan.nextDouble();
         scan.nextLine();
         String s = scan.nextLine();
         // String s = scan.next()+scan.nextLine();  // If we use this line we will not need the last 2
