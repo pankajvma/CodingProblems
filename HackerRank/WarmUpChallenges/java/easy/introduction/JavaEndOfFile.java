@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/java-end-of-file/problem
-package hackerrank.warmupChallenges.java.easy;
+package hackerrank.warmupChallenges.java.easy.introduction;
 
 import java.util.Scanner;
 

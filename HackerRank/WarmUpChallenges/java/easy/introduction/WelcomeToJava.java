@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/welcome-to-java/problem
-package hackerrank.warmupChallenges.java.easy;
+package hackerrank.warmupChallenges.java.easy.introduction;
 
 public class WelcomeToJava {
 

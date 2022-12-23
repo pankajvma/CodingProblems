@@ -1,6 +1,6 @@
 
 // https://www.hackerrank.com/challenges/java-loops-i/problem
-package hackerrank.warmupChallenges.java.easy;
+package hackerrank.warmupChallenges.java.easy.introduction;
 
 import java.io.BufferedReader;
 import java.io.IOException;

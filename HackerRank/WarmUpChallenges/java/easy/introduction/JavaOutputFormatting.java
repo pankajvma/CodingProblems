@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/java-output-formatting/problem
-package hackerrank.warmupChallenges.java.easy;
+package hackerrank.warmupChallenges.java.easy.introduction;
 import java.util.*;
 
 public class JavaOutputFormatting {

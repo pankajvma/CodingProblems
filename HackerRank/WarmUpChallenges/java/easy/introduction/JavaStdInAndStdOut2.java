@@ -1,5 +1,5 @@
 
-package hackerrank.warmupChallenges.java.easy;
+package hackerrank.warmupChallenges.java.easy.introduction;
 
 import java.util.Scanner;
 

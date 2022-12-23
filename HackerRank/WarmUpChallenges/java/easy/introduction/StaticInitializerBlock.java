@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/java-static-initializer-block/problem
-package hackerrank.warmupChallenges.java.easy;
+package hackerrank.warmupChallenges.java.easy.introduction;
 
 import java.util.Scanner;
 

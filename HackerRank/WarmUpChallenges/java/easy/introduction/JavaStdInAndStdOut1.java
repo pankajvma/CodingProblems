@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/java-stdin-and-stdout-1/problem
-package hackerrank.warmupChallenges.java.easy;
+package hackerrank.warmupChallenges.java.easy.introduction;
 import java.util.*;
 
 public class JavaStdInAndStdOut1 {

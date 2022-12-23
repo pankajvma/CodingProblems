@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/java-currency-formatter/problem
-package hackerrank.warmupChallenges.java.easy;
+package hackerrank.warmupChallenges.java.easy.introduction;
 
 import java.text.NumberFormat;
 import java.util.Locale;

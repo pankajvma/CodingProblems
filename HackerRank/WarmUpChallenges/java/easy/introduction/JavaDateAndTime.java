@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/java-date-and-time/problem
-package hackerrank.warmupChallenges.java.easy;
+package hackerrank.warmupChallenges.java.easy.introduction;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
