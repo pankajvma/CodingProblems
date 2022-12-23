@@ -31,10 +31,9 @@ public class JavaDataTypes {
                     System.out.println("* int");
                     System.out.println("* long");
                 }
-                else if(x>= Math.pow(-2, 63) && x<Math.pow(2, 63)){
+                else if(x>= Math.pow(-2, 63) && x<=Long.valueOf((long) Math.pow(2, 63))){ // To handle presision in case of big values
                     System.out.println("* long");
                 }
-                //Complete the code
             }
             catch(Exception e)
             {
