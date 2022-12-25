@@ -35,6 +35,19 @@ public class Anagrams {
         return true;
     }
 
+    // An alternate way of solving this is as follows
+
+    // static boolean isAnagram(String a, String b) {
+    //     if(a.equals(b)) return true;
+    //     if(a.length() != b.length()) return false;
+
+    //     char[] aArr = a.toCharArray();
+    //     char[] bArr = b.toCharArray();
+    //     java.util.Arrays.sort(aArr);
+    //     java.util.Arrays.sort(bArr);
+    //     return aArr.equals(bArr);
+    // }
+
   public static void main(String[] args) {
     
         Scanner scan = new Scanner(System.in);
