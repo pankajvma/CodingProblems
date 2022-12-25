@@ -40,12 +40,18 @@ public class Anagrams {
     // static boolean isAnagram(String a, String b) {
     //     if(a.equals(b)) return true;
     //     if(a.length() != b.length()) return false;
+        
+    //     String c= a.toLowerCase();
+    //     String d= b.toLowerCase();
 
-    //     char[] aArr = a.toCharArray();
-    //     char[] bArr = b.toCharArray();
-    //     java.util.Arrays.sort(aArr);
-    //     java.util.Arrays.sort(bArr);
-    //     return aArr.equals(bArr);
+    //     char  []c1=c.toCharArray();
+    //     char  []c2=d.toCharArray();
+
+    //     java.util.Arrays.sort(c1);
+    //     java.util.Arrays.sort(c2);
+    //     a=java.util.Arrays.toString(c1);
+    //     b=java.util.Arrays.toString(c2);
+    //     return a.equals(b);
     // }
 
   public static void main(String[] args) {
