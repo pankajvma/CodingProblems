@@ -24,6 +24,8 @@ public class Anagrams {
     }
     
     static boolean isAnagram(String a, String b) {
+        if(a.equals(b)) return true;
+        if(a.length() != b.length()) return false;
         int[] charArr = aToZ();
         for(int i = 0; i < charArr.length; i++){
             if(getCharCount(charArr[i], a.toLowerCase()) != getCharCount(charArr[i], b.toLowerCase())){
