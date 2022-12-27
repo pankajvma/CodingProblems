@@ -36,3 +36,18 @@ public class TagContentExtractor {
         return extract.toString();
     }
 }
+
+/* Explaining above ptrn <(.+)>([^<]+)</(\\1)>
+    #1. < --------> Exact match with <
+    #2. (.+) -----> Group1 contains ".+". Here "." mean any charater except line terminator. "+" means the preceeding character or character type can repeat one or more times.
+    #3. > --------> Exact match with >
+    #4. ([^<]+) --> Group2 comtains a character class and + symbol. Explained in #5 and #6
+    #5. [^<] -----> Shoul not start with a <
+    #6. + --------> As explained in #2 here #5 is preceeding character class, it can repeat one or more times.
+    #7. </ -------> Exact match with </
+    #8. (//1) ----> Whatever was mattched in Group1
+    #9. > --------> Exact match with >
+
+    Explaining pattern
+    Utilizing ipDigitPattern and using it with [.] to create the full pattern
+     */
