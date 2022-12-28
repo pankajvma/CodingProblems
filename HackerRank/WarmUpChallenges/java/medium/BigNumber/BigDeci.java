@@ -17,7 +17,7 @@ public class BigDeci {
         int k = n;
         while(k-- >= 0){ //Applying bubble sort to perform numeric comaprisions
             for(int i = 0; i < k; i++){
-                BigDecimal thisElem = new BigDecimal(s[i]);
+                BigDecimal thisElem = new BigDecimal(s[i]); // Comparing Big Numer strings using BigDecimal
                 BigDecimal nextElem = new BigDecimal(s[i+1]);
                 String temp = "";
                 if(thisElem.compareTo(nextElem) < 0){
