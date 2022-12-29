@@ -1,10 +1,12 @@
 // https://www.hackerrank.com/challenges/java-arraylist/problem
 package hackerrank.warmupChallenges.java.easy.DataStructures;
 
+import java.util.Scanner;
+import java.util.ArrayList;
+
 public class ArrayListInJava {
 
     public static void main(String[] args) {
-        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
         Scanner scn = new Scanner(System.in);
         ArrayList<ArrayList<Integer>> arr = new ArrayList<>();
         int n = scn.nextInt();
