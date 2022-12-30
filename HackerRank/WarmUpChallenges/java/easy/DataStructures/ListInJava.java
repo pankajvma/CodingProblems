@@ -1,4 +1,4 @@
-// https://www.hackerrank.com/challenges/java-list/problem?
+// https://www.hackerrank.com/challenges/java-list/problem
 package hackerrank.warmupChallenges.java.easy.DataStructures;
 
 import java.util.LinkedList;
