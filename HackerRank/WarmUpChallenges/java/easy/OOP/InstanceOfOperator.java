@@ -9,7 +9,7 @@ class Rockstar{   }
 class Hacker{}
 
 
-public class InstanceOfKeyword{
+public class InstanceOfOperator{
 	
    static String count(ArrayList mylist){
       int a = 0,b = 0,c = 0;
