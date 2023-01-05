@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/java-stack/problem
-package hackerrank.warmupChallenges.java.medium;
+package hackerrank.warmupChallenges.java.medium.DataStrucutures;
 
 import java.util.ArrayList;
 import java.util.List;
