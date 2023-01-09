@@ -59,7 +59,6 @@ public class FactoryDesignPattern {
 			System.out.println("Unsuccessful Termination!!");
 		}
 	}
-
 }
 
 class Do_Not_Terminate {
