@@ -1,6 +1,6 @@
+// https://www.hackerrank.com/challenges/java-md5/problem
 package hackerrank.java.medium.Advanced;
 
-import java.io.*;
 import java.util.*;
 import java.security.MessageDigest;
 import java.math.BigInteger;
