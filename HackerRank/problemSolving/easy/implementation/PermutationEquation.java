@@ -1,3 +1,4 @@
+// https://www.hackerrank.com/challenges/permutation-equation/problem
 package hackerrank.problemSolving.easy.implementation;
 
 import java.io.*;
