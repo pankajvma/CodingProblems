@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/the-hurdle-race/problem
-package hackerrank.problemSolving.easy.implementation;
+package hackerrank.problemSolving.easy.algorithms.implementation;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

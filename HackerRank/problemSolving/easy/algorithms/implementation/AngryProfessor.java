@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/angry-professor/problem
-package hackerrank.problemSolving.easy.implementation;
+package hackerrank.problemSolving.easy.algorithms.implementation;
 
 import java.io.*;
 import java.util.*;

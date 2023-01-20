@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/permutation-equation/problem
-package hackerrank.problemSolving.easy.implementation;
+package hackerrank.problemSolving.easy.algorithms.implementation;
 
 import java.io.*;
 import java.util.*;

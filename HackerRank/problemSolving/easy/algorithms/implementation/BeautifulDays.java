@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/beautiful-days-at-the-movies/problem
-package hackerrank.problemSolving.easy.implementation;
+package hackerrank.problemSolving.easy.algorithms.implementation;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

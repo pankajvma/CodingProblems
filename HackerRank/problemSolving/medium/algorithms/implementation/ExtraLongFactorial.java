@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/extra-long-factorials/problem
-package hackerrank.problemSolving.medium.implementation;
+package hackerrank.problemSolving.medium.algorithms.implementation;
 
 import java.io.*;
 import java.math.*;

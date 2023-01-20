@@ -1,3 +1,4 @@
+package hackerrank.problemSolving.easy.algorithms.implementation;
 // https://www.hackerrank.com/challenges/service-lane/problem
 import java.io.*;
 import java.math.*;
