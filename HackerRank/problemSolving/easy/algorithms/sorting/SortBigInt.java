@@ -18,7 +18,16 @@ class Result {
     public static List<String> bigSorting(List<String> unsorted) {
         Comparator<String> comparator = new Comparator<String>() {
             public int compare(String b1, String b2){
-                return new BigInteger(b1).compareTo(new BigInteger(b2));
+                // This is the optimized code, We tried to use BigInteger's compareTo() for comparing Big Numbers.
+                // However, that gave TLE for some cases. Hence, We optimized the code by overriding compare() further as per our need.
+                if(b1.equals(b2)){
+                    return 0;
+                } else if(b1.length() < b2.length()){
+                    return -1;
+                } else if(b1.length() > b2.length()){
+                    return 1;
+                }
+                return b1.compareTo(b2);
             }
         };
         unsorted.sort(comparator);
