@@ -3,18 +3,15 @@ package dsAlgoSpecialization.week1progChallenges;
 import java.util.Scanner;
 
 public class MaxPairwiseProduct{
-    public static long maxPairProd(int n, int[] arr){
+
+    public static long maxPairProd(int n, int[] arr){ // Optimized after stress testing, time complexity reduced from 2n to n.
         int max = 0;
-        int maxIndex = -1;
-        for(int i = 0; i < n; i++){
-            if(arr[i] > max){
-                max = arr[i];
-                maxIndex = i;
-            }
-        }
         int secondMax = 0;
         for(int i = 0; i < n; i++){
-            if(arr[i] > secondMax && i != maxIndex){
+            if(arr[i] > max){
+                secondMax = max;
+                max = arr[i];
+            } else if(arr[i] > secondMax){
                 secondMax = arr[i];
             }
         }
