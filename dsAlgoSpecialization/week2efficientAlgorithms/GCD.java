@@ -1,6 +1,5 @@
 package dsAlgoSpecialization.week2efficientAlgorithms;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class GCD {
@@ -14,7 +13,6 @@ public class GCD {
     
 
     public static int getGCD(int a, int b){ // Fast algorithm using Euclidean lemma
-        System.out.println(a+ " "+b);
         if(b == 0){
             return a;
         }
