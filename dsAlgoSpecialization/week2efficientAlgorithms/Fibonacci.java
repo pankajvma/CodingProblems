@@ -7,14 +7,19 @@ public class Fibonacci {
         Scanner scn = new Scanner(System.in);
         int a = scn.nextInt();
         scn.close();
-        for(int i = 0; i <= a; i++){
-            System.out.println(fibRecursive(i));
-        }
+        System.out.println(fib(a));
     }
 
-    public static int fibRecursive(int a){
+    public static long fib(int a){
+        long first = 0;
+        long second = 1;
         if(a <= 1){
             return a;
-        } return fibRecursive(a - 1) + fibRecursive(a - 2);
+        }
+        for(int i = 2; i <= a; i++){
+            long temp = second;
+            second = second + first;
+            first = temp;
+        } return second;
     }
 }

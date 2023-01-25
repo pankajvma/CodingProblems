@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class MaxPairwiseProduct{
 
-    public static long maxPairProd(int n, int[] arr){ // Optimized after stress testing, time complexity reduced from 2n to n.
+    // Optimized function after stress testing, time complexity reduced from 2n to n.
+    // Stress test available at stressTests\SMaxPairwiseProduct.java
+    public static long maxPairProd(int n, int[] arr){ 
         int max = 0;
         int secondMax = 0;
         for(int i = 0; i < n; i++){
