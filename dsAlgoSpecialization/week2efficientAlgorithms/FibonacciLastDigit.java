@@ -3,7 +3,7 @@ package dsAlgoSpecialization.week2efficientAlgorithms;
 import java.util.*;
 
 public class FibonacciLastDigit {
-    private static int getFibonacciLastDigitNaive(int a) {
+    private static int getFibonacciLastDigitFast(int a) {
         int first = 0;
         int second = 1;
         if(a <= 1){
@@ -19,7 +19,7 @@ public class FibonacciLastDigit {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        int c = getFibonacciLastDigitNaive(n);
+        int c = getFibonacciLastDigitFast(n);
         System.out.println(c);
     }
 }
