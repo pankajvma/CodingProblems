@@ -24,7 +24,7 @@ public class FibonacciPartialSum {
         Scanner scanner = new Scanner(System.in);
         long from = scanner.nextLong();
         long to = scanner.nextLong();
-        long fastAns = getFibonacciSumFast(to%60) - getFibonacciSumFast((from-1)%60); // 60 is the Pisano number
+        long fastAns = getFibonacciSumFast(to%60) - getFibonacciSumFast((from-1)%60); // 60 is the Pisano period
         fastAns = fastAns < 0 ? fastAns + 10 : fastAns;
         System.out.println(fastAns);
     }
