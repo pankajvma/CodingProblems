@@ -58,10 +58,10 @@ public class SFibonacciPartialSum {
     }
 
     public static void main(String[] args) {
-        Random scanner = new Random(5);
+        Random random = new Random(5);
         while(true){
-            long from = scanner.nextInt(1000000)+3;
-            long to = scanner.nextInt(1000000)+3;
+            long from = random.nextInt(1000000)+3;
+            long to = random.nextInt(1000000)+3;
             if(from < to){
                 // long naiveAns = getFibonacciPartialSumNaive(from, to);
                 long naiveOpt = getFibonacciPartialSumNaiveOpt(from, to);
@@ -90,4 +90,3 @@ public class SFibonacciPartialSum {
         
     }
 }
-
