@@ -33,7 +33,6 @@ public class SFibonacciPartialSum {
             if(i >= from){
                 sum += second % 10;
                 sum %= 10;
-                // System.out.println("Second: "+ second +", Sum: "+sum);
             }
             int temp = second;
             second = (second + first)%10;
