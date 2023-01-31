@@ -5,13 +5,10 @@ import java.util.*;
 public class LargestNumber {
     private static String largestNumber(String[] a) {
 
-        Comparator<String> comparator = new Comparator<>() {
+        Comparator<String> comparator = new Comparator<String>() {
             public int compare(String a, String b){
-                if(a.equals(b)){
-                    return 0;
-                } else if(a.length() < b.length()){
-                    return b.compareTo(a);
-                } return a.compareTo(b);
+                if(Integer.parseInt(a+b) >= Integer.parseInt(b + a)) return -1; // Instead of > we are using >= because the general conntract of TimSort says that the sort should be in-place
+                return 1;
             }
         };
 
@@ -20,8 +17,8 @@ public class LargestNumber {
 
         StringBuilder result = new StringBuilder();
 
-        for (int i = numList.size() - 1; i >= 0; i--) {
-            result.append(numList.get(i));
+        for (String string: numList) {
+            result.append(string);
         }
         return result.toString();
     }
@@ -36,4 +33,3 @@ public class LargestNumber {
         System.out.println(largestNumber(a));
     }
 }
-
