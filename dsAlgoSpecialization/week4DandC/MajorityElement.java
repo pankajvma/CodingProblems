@@ -11,7 +11,7 @@ public class MajorityElement {
         if (left + 1 == right) {
             return a[left];
         }
-        //write your code here
+        //DAC to be applied
         return -1;
     }
 
@@ -56,4 +56,3 @@ public class MajorityElement {
         }
     }
 }
-
