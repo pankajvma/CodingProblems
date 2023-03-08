@@ -190,7 +190,7 @@ WHERE
     ord.standard_qty > 100
     AND ord.poster_qty > 50
 ORDER BY
-    unit_price;
+    unit_price DESC;
 
 -- Q19.7. What are the different channels used by account id 1001? Your final table should have only 2 columns: account name and the different channels. 
 -- You can try SELECT DISTINCT to narrow down the results to only the unique values.
