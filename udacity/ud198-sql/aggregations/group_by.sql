@@ -78,3 +78,64 @@ GROUP BY
     regn.name
 ORDER BY
     frequency;
+
+-- Q16.1. For each account, determine the average amount of each type of paper they purchased across their orders. 
+-- Your result should have four columns - one for the account name and one for the average quantity purchased for each of the paper types for each account.
+SELECT
+    acc.name,
+    AVG(ord.standard_qty) avg_standard_qty,
+    AVG(ord.gloss_qty) avg_gloss_qty,
+    AVG(ord.poster_qty) avg_poster_qty
+FROM
+    accounts acc
+    LEFT JOIN orders ord ON ord.account_id = acc.id
+GROUP BY
+    acc.name;
+
+-- Q16.2. For each account, determine the average amount spent per order on each paper type. 
+-- Your result should have four columns - one for the account name and one for the average amount spent on each paper type.
+SELECT
+    acc.name,
+    AVG(ord.standard_amt_usd) avg_std,
+    AVG(ord.gloss_amt_usd) avg_gloss,
+    AVG(ord.poster_amt_usd) avg_poster
+FROM
+    accounts acc
+    LEFT JOIN orders ord ON ord.account_id = acc.id
+GROUP BY
+    acc.name;
+
+-- Q16.3. Determine the number of times a particular channel was used in the web_events table for each sales rep. 
+-- Your final table should have three columns - the name of the sales rep, the channel, and the number of occurrences. 
+-- Order your table with the highest number of occurrences first.
+SELECT
+    rep.name,
+    web.channel,
+    COUNT(*) times_used
+FROM
+    accounts acc
+    LEFT JOIN sales_reps rep ON rep.id = acc.sales_rep_id
+    LEFT JOIN web_events web ON acc.id = web.account_id
+GROUP BY
+    rep.name,
+    web.channel
+ORDER BY
+    times_used DESC;
+
+-- Q16.4. Determine the number of times a particular channel was used in the web_events table for each region. 
+-- Your final table should have three columns - the region name, the channel, and the number of occurrences. 
+-- Order your table with the highest number of occurrences first.
+SELECT
+    reg.name,
+    web.channel,
+    COUNT(*) times_used
+FROM
+    region reg
+    LEFT JOIN sales_reps rep ON rep.region_id = reg.id
+    LEFT JOIN accounts acc ON rep.id = acc.sales_rep_id
+    LEFT JOIN web_events web ON acc.id = web.account_id
+GROUP BY
+    reg.name,
+    web.channel
+ORDER BY
+    times_used DESC;
