@@ -155,7 +155,7 @@ FROM
                     max_std.max_total_qty
                 FROM
                     (
-                        -- Querying the record for that has purchased maximum number of standard_qty paper
+                        -- Querying the record that has purchased maximum number of standard_qty paper
                         SELECT
                             acc.name,
                             SUM(ord.standard_qty) max_standard_qty,
