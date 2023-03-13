@@ -56,11 +56,13 @@ SELECT
     max_sales_by_region.max_sale
 FROM
     (
+        -- Query to find maximum total  sale done by a sales_person in  a region
         SELECT
             top_sales.region_name,
             MAX(top_sales.largest_sale) max_sale
         FROM
             (
+                -- Query to find total sales done by a sales_person in  a region
                 SELECT
                     rep.name sales_rep_name,
                     reg.name region_name,
@@ -80,6 +82,7 @@ FROM
             1
     ) max_sales_by_region
     JOIN (
+        -- Query to find total sales done by a sales_person in  a region
         SELECT
             rep.name sales_rep_name,
             reg.name region_name,
@@ -106,6 +109,7 @@ SELECT
     COUNT(*)
 FROM
     (
+        -- Largest sum of total_amt_usd in a region
         SELECT
             reg.id,
             reg.name region_name,
@@ -135,6 +139,7 @@ SELECT
     COUNT(*)
 FROM
     (
+        -- Extracting the sum at account_name level
         SELECT
             acc.name,
             SUM(ord.total)
@@ -145,10 +150,12 @@ FROM
             1
         HAVING
             SUM(ord.total) > (
+                -- Extracting the value of total  purchases where standard_qty paper purchase is highest
                 SELECT
                     max_std.max_total_qty
                 FROM
                     (
+                        -- Querying the record for that has purchased maximum number of standard_qty paper
                         SELECT
                             acc.name,
                             SUM(ord.standard_qty) max_standard_qty,
@@ -176,6 +183,7 @@ SELECT
 FROM
     web_events web
     JOIN (
+        -- Querying customer that spent the most (in total over their lifetime as a customer) total_amt_usd
         SELECT
             acc.id,
             acc.name,
@@ -202,6 +210,7 @@ SELECT
     AVG(top_ten.avg_usd_spent)
 FROM
     (
+        -- Querying total_amt_usd for the top 10 total spending accounts
         SELECT
             acc.id,
             acc.name,
@@ -223,6 +232,7 @@ SELECT
     AVG(account_avg_exp.company_avg_spent)
 FROM
     (
+        -- Companies that spent more per order, on average, than the average of all orders.
         SELECT
             acc.name,
             AVG(ord.total_amt_usd) company_avg_spent
@@ -233,6 +243,7 @@ FROM
             1
         HAVING
             AVG(ord.total_amt_usd) > (
+                -- average of all orders
                 SELECT
                     AVG(ord.total_amt_usd)
                 FROM
