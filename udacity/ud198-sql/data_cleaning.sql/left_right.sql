@@ -36,6 +36,26 @@ GROUP BY
 ORDER BY
     2 DESC;
 
+-- OR --
+SELECT
+    SUM(num) nums,
+    SUM(letter) letters
+FROM
+    (
+        SELECT
+            name,
+            CASE
+                WHEN LEFT(UPPER(name), 1) IN ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9') THEN 1
+                ELSE 0
+            END AS num,
+            CASE
+                WHEN LEFT(UPPER(name), 1) IN ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9') THEN 0
+                ELSE 1
+            END AS letter
+        FROM
+            accounts
+    ) t1;
+
 -- Q3.4. Consider vowels as a, e, i, o, and u. What proportion of company names start with a vowel, and what percent start with anything else?
 SELECT
     CASE
@@ -49,3 +69,23 @@ GROUP BY
     1
 ORDER BY
     2 DESC;
+
+-- OR --
+SELECT
+    SUM(vowels) vowels,
+    SUM(other) other
+FROM
+    (
+        SELECT
+            name,
+            CASE
+                WHEN LEFT(UPPER(name), 1) IN ('A', 'E', 'I', 'O', 'U') THEN 1
+                ELSE 0
+            END AS vowels,
+            CASE
+                WHEN LEFT(UPPER(name), 1) IN ('A', 'E', 'I', 'O', 'U') THEN 0
+                ELSE 1
+            END AS other
+        FROM
+            accounts
+    ) t1;
