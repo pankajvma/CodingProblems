@@ -1,5 +1,6 @@
 io
 .vscode
+.gitignore
 hackerrank/java/medium/Strings/DuplicateWords.java
 hackerrank/java/medium/DataStrucutures/OneDArrayPart2.java
 hackerrank/java/medium/Advanced/VisitorPattern.java
@@ -8,3 +9,4 @@ hackerrank/java/medium/Advanced/Annotations.java
 hackerrank/java/medium/Advanced/LambdaEx.java
 hackerrank/java/medium/Advanced/MD5inJava.java
 hackerrank/java/medium/Advanced/SHA256inJava.java
+interview/
